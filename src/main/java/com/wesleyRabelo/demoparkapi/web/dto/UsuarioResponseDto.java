@@ -1,4 +1,4 @@
-package com.wesleyRabelo.demoparkapi.web.controller.dto;
+package com.wesleyRabelo.demoparkapi.web.dto;
 
 import lombok.*;
 
@@ -8,6 +8,7 @@ import lombok.*;
 @AllArgsConstructor
 @ToString
 public class UsuarioResponseDto {
+
     private Long id;
     private String username;
     private String role;

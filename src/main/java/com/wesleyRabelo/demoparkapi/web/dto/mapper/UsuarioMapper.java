@@ -1,8 +1,8 @@
-package com.wesleyRabelo.demoparkapi.web.controller.dto.mapper;
+package com.wesleyRabelo.demoparkapi.web.dto.mapper;
 
 import com.wesleyRabelo.demoparkapi.entity.Usuario;
-import com.wesleyRabelo.demoparkapi.web.controller.dto.UsuarioCreateDto;
-import com.wesleyRabelo.demoparkapi.web.controller.dto.UsuarioResponseDto;
+import com.wesleyRabelo.demoparkapi.web.dto.UsuarioCreateDto;
+import com.wesleyRabelo.demoparkapi.web.dto.UsuarioResponseDto;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.PropertyMap;
 
@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class UsuarioMapper {
+
     public static Usuario toUsuario(UsuarioCreateDto createDto) {
         return new ModelMapper().map(createDto, Usuario.class);
     }
@@ -27,7 +28,7 @@ public class UsuarioMapper {
         return mapper.map(usuario, UsuarioResponseDto.class);
     }
 
-    public static List<UsuarioResponseDto> toListDto(List<Usuario> usuarios){
-        return usuarios.stream().map(UsuarioMapper::toDto).collect(Collectors.toList());
+    public static List<UsuarioResponseDto> toListDto(List<Usuario> usuarios) {
+        return usuarios.stream().map(user -> toDto(user)).collect(Collectors.toList());
     }
 }
